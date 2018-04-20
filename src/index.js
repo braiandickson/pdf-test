@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import 'regenerator-runtime/runtime';
 import { Page, Text, View, Document, StyleSheet } from '@react-pdf/core';
 import ReactPDF from '@react-pdf/node';
-import 'regenerator-runtime/runtime';
 
 
 // Create styles
@@ -35,8 +34,14 @@ const MyDocument = () => (
   </Document>
 );
 
+const MyApp = () => (
+  <div>
+    <h1>test</h1>
+    <a href="localhost:3000/example.pdf" download>PDF</a>
+  </div>
+);
 
 ReactPDF.render(<MyDocument />, `${__dirname}/example.pdf`);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<MyApp />, document.getElementById('root'));
 registerServiceWorker();
